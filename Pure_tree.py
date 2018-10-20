@@ -9,15 +9,15 @@ def TestTrain(X, y, test_size):
     return X_train, X_test, y_train, y_test
 
 
-def entropy():
-    dtc_entropy = DecisionTreeClassifier(max_depth=8, criterion='entropy', random_state=1)
+def entropy(X_train, y_train, y_test, X_test):
+    dtc_entropy = DecisionTreeClassifier(criterion='entropy', random_state=1)
     dtc_entropy.fit(X_train,y_train)
     y_pred_entropy = dtc_entropy.predict(X_test)
     entropic_score = accuracy_score(y_test, y_pred_entropy)
     return entropic_score
     
     
-def entropy_depth_test(depth):
+def entropy_depth_test(depth, X_train, y_train, y_test, X_test):
     df = pd.DataFrame(columns=['Depth', 'Accuracy'])
     df = df.set_index('Depth')
     for cur_depth in range(depth):
@@ -29,15 +29,15 @@ def entropy_depth_test(depth):
       return df
 
 
-def gini():
-    dtc_gini = DecisionTreeClassifier(max_depth=8, criterion='gini', random_state=1)
+def gini(X_train, y_train, y_test, X_test):
+    dtc_gini = DecisionTreeClassifier(criterion='gini', random_state=1)
     dtc_gini.fit(X_train,y_train)
     y_pred_gini = dtc_gini.predict(X_test)
     gini_score = accuracy_score(y_test, y_pred_gini)
     return gini_score
 
 
- def gini_depth_test(depth):
+ def gini_depth_test(depth, X_train, y_train, y_test, X_test):
     df = pd.DataFrame(columns=['Depth', 'Accuracy'])
     df = df.set_index('Depth')
     for cur_depth in range(depth):
@@ -49,6 +49,6 @@ def gini():
       return df
 
 
-def entropy_gini(X_train, y_train, X_test, y_test):
+def entropy_gini(X_train, y_train, y_test, X_test):
     entropy()
     gini()
