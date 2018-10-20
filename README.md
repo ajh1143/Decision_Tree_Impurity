@@ -71,7 +71,7 @@ def entropy_gini(X_train, y_train, X_test, y_test):
 ```
 
 ## Visualize Tree Graph
-``Python3
+```Python3
 def tree_viz(dtc, df, col_names, classes):
     classer = classes
     dot = tree.export_graphviz(dtc, out_file=None, feature_names=col_names, class_names=classer, filled=True, rounded=False,       
