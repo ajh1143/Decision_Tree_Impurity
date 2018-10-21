@@ -1,6 +1,12 @@
 # Decision_Tree_Impurity
 Scripts for assaying Decision Tree purity
 
+## What is Purity?    
+**Measures:**    
+Effectiveness of class separation   
+**Goal:**        
+Purely separate leaf class outcomes
+
 ## Imports
 ```Python3
 from sklearn.model_selection import train_test_split
